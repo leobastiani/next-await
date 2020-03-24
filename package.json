@@ -1,0 +1,20 @@
+{
+  "name": "next-await",
+  "version": "0.0.0",
+  "dependencies": {
+    "modern-node": "2.7.0"
+  },
+  "author": "Leobastiani <leogbastiani@gmail.com>",
+  "repository": "Leonardo/next-await",
+  "license": "MIT",
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "test": "modern test",
+    "format": "modern format",
+    "lint": "modern lint",
+    "precommit": "modern precommit"
+  }
+}
