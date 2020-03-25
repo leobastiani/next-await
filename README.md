@@ -16,7 +16,7 @@ yarn add https://github.com/leobastiani/next-await
 ## Usage
 
 ```javascript
-const { withNextAwait } = require('./')
+const { withNextAwait } = require('next-await')
 
 const nextAwait = withNextAwait({})
 const promise = nextAwait.nextAwait
