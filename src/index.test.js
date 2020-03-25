@@ -1,47 +1,52 @@
-const NextAwait = require('./')
+const { NextAwait } = require('./')
+const { PromiseStatuses, promiseStatus } = require('promise-status-async')
 
-it('can return', async () => {
+it('can return', () => {
   const nextAwait = new NextAwait()
 
-  expect(nextAwait.promise).toBeInstanceOf(Promise)
+  expect(nextAwait.nextAwait).toBeInstanceOf(Promise)
 })
 
-it('can wait', async () => {
+it('can wait', () => {
   const nextAwait = new NextAwait()
 
-  expect(nextAwait.promise).toBeInstanceOf(Promise)
-  expect(nextAwait.promise.resolved).toBe(false)
+  expect(nextAwait.nextAwait).toBeInstanceOf(Promise)
+  expect(promiseStatus(nextAwait.nextAwait)).resolves.toBe(
+    PromiseStatuses.PROMISE_PENDING
+  )
 
-  nextAwait.resolve(123)
-  expect(nextAwait.promise).resolves.toBe(123)
+  expect(nextAwait.nextAwait.resolve(123)).toBe(123)
+  expect(nextAwait.nextAwait).resolves.toBe(123)
 })
 
-it('can wait', async () => {
+it('can wait', () => {
   const nextAwait = new NextAwait()
 
-  expect(nextAwait.promise).toBeInstanceOf(Promise)
-  expect(nextAwait.promise.resolved).toBe(false)
+  expect(nextAwait.nextAwait).toBeInstanceOf(Promise)
+  expect(promiseStatus(nextAwait.nextAwait)).resolves.toBe(
+    PromiseStatuses.PROMISE_PENDING
+  )
 
-  nextAwait.resolve(123)
-  expect(nextAwait.promise).resolves.toBe(123)
+  nextAwait.nextAwait.resolve(123)
+  expect(nextAwait.nextAwait).resolves.toBe(123)
 })
 
-it('works with concurrency', async () => {
+it('works with concurrency', () => {
   const nextAwait = new NextAwait()
 
-  const concurrency = Promise.all([nextAwait.promise, nextAwait.promise])
-  nextAwait.resolve(123)
+  const concurrency = Promise.all([nextAwait.nextAwait, nextAwait.nextAwait])
+  nextAwait.nextAwait.resolve(123)
 
-  expect(concurrency).resolves.toBe([123, 123])
+  expect(concurrency).resolves.toStrictEqual([123, 123])
 })
 
-it('queues', async () => {
+it('queues', () => {
   const nextAwait = new NextAwait()
 
-  const promise1 = nextAwait.promise
-  nextAwait.resolve(123)
-  const promise2 = nextAwait.promise
-  nextAwait.resolve(456)
+  const promise1 = nextAwait.nextAwait
+  nextAwait.nextAwait.resolve(123)
+  const promise2 = nextAwait.nextAwait
+  nextAwait.nextAwait.resolve(456)
 
   expect(promise1).resolves.toBe(123)
   expect(promise2).resolves.toBe(456)

@@ -16,5 +16,8 @@
     "format": "modern format",
     "lint": "modern lint",
     "precommit": "modern precommit"
+  },
+  "devDependencies": {
+    "promise-status-async": "^1.1.11"
   }
 }

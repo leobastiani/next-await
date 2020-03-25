@@ -3921,7 +3921,7 @@ parse-json@^5.0.0:
     json-parse-better-errors "^1.0.1"
     lines-and-columns "^1.1.6"
 
-"parse-srcset@github:ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee":
+parse-srcset@ikatyang/parse-srcset#54eb9c1cb21db5c62b4d0e275d7249516df6f0ee:
   version "1.0.2"
   resolved "https://codeload.github.com/ikatyang/parse-srcset/tar.gz/54eb9c1cb21db5c62b4d0e275d7249516df6f0ee"
 
@@ -4179,6 +4179,11 @@ progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+
+promise-status-async@^1.1.11:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/promise-status-async/-/promise-status-async-1.1.11.tgz#3c256553d455c93b8f8d9a8e4caa8f207d574cbf"
+  integrity sha512-SDLCsfmbHhzGMwPT0KlDO/0qGOfSMKDP+J5OG8JC3cehA//I4grsa/SyX7iKx6yy174xEreZ5leMOLuQA8DjTg==
 
 prompts@^2.0.1:
   version "2.3.2"
