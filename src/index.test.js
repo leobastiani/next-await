@@ -1,5 +1,11 @@
-const { NextAwait } = require('./')
+const { NextAwait, withNextAwait } = require('./')
 const { PromiseStatuses, promiseStatus } = require('promise-status-async')
+
+it('should return itself', () => {
+  const object = {}
+
+  expect(withNextAwait(object)).toBe(object)
+})
 
 it('can return', () => {
   const nextAwait = new NextAwait()

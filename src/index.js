@@ -12,6 +12,7 @@ const withNextAwait = (object, attr = 'nextAwait') => {
   }
 
   setPromise()
+  return object
 }
 
 class NextAwait {
